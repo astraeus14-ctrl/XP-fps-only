@@ -11,7 +11,6 @@
 	Returns: Nothing
 */
 
-#include "script_macros.hpp"
 
 // Only to be run on the server
 if (!isServer) exitWith {};
@@ -21,7 +20,7 @@ if ((_this select 0) == 0) exitWith {};
 
 // Do not execute if there are already map markers present, this would indicate that the function is already running
 if (!isNil "XPT_mapMarkersList") exitWith {
-	[1, "Second XPT_fnc_mapMarkersServer instance started while another instance was already running", 2] call XPT_fnc_log;
+	
 };
 	
 
@@ -34,9 +33,7 @@ if (!isNil "XPT_mapMarkersList") exitWith {
 	
 	// Mark the map markers as enabled
 	XPT_mapMarkersEnabled = true;
-	
-	[3, "Starting map markers loop", 0] call XPT_fnc_log;
-	
+		
 	// Start the loop
 	while {XPT_mapMarkersEnabled} do {
 		// Clear the groups list

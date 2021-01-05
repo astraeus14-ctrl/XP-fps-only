@@ -1,229 +1,26 @@
-//-------------------- Mission Information
-
-author = "";					// Author name visible on loading screen. DO NOT EDIT IF USING BUILD SCRIPT
-briefingName = "";				// Name visible in mission select screen. DO NOT EDIT IF USING BUILD SCRIPT
-overviewText = "";				// Description visible in mission select screen
-//overviewPicture = "";			// Image visible in mission select screen. Leave commented, still doesn't work properly.
-onLoadName = "";				// Name visible on loading screen
-onLoadMission = "";				// Description visible on loading screen
-//loadScreen = "media\loadscreen.paa"; // Image visible on loading screen
-
-class Header
-{
-	gameType = COOP;			// https://community.bistudio.com/wiki/Multiplayer_Game_Types
-	minPlayers = 1;				// Minimum amount of players needed for the mission
-	maxPlayers = 16;			// Maximum amount of players the mission supports
-};
-
-//-------------------- Template Defines
-// Uncomment the following defines if you want to change away from the default values pictured here.
-
-//#define XPT_DEFINEPVP 1			// Uncomment if the mission is a PvP mission
-
-// The following lines are used if you want to change the default text channel restriction for missions.
-// By default, COOP missions only allow group and global, PVP missions allow side chat as well.
-//#define XPT_TEXTCHANNELS_COOP disableChannels[] = {{0,false,true},{1,true,true},{2,true,true},{3,false,true},{4,true,true},{5,true,true}};
-//#define XPT_TEXTCHANNELS_PVP disableChannels[] = {{0,false,true},{1,false,true},{2,true,true},{3,false,true},{4,true,true},{5,true,true}};
-
-// The following defines set default values for lobby parameters. Change as needed for the mission.
-//#define XPT_MAPMARKERS 1			// 0 = Disabled, 1 = Enabled.
-//#define XPT_DEFINE_JIPTELEPORT 1			// 0 = Disabled, 1 = Enabled. Currently unused
-//#define XPT_DEFINE_SAFESTART 1			// 0 = Disabled, 1 = Enabled. REQUIRES MISSION SUPPORT.
-
-//#define XPT_DEBUGMODE 0			// 0 = Disabled, 1 = Enabled.
-
-//#define XPT_DEFINE_CUSTOMLOADOUTS 1		// 0 = Disabled, 1 = Enabled. Enables the loadout system
-//#define XPT_DEFINE_VEHICLESETUP 1			// 0 = Disabled, 1 = Enabled. Executes the vehicle setup script on all vehicles at mission start
-//#define XPT_DEFINE_STAGEDEFAULT "stage1"	// Use this to set the default mission stage. Does nothing if stages aren't used.
-
-// Curator settings
-//#define XPT_DEFINE_CURATOR_CUSTOMLOADOUTS 1		// 0 = Disabled, 1 = Enabled. Currently unused.
-//#define XPT_DEFINE_CURATOR_REMOVENVG 1			// 0 = Disabled, 1 = Enabled. Removes NVGs from zeus-spawned units.
-
-//-------------------- ACE 3 Defines
-// Uncomment the following defines if you want to change away from the default values pictured here.
-
-//#define XPT_ACE3_MEDICALLEVEL 0					// 0 = Standard, 1 = Realistic (for side/sunday ops only), 2 = Custom (does not modify any settings, for side ops only)
-//#define XPT_ACE3_PLAYERDAMAGETHRESHOLD 100		// Percentage value (without the % sign). Accepts values from 50 to 200 in increments of 10 (50, 60, 70, etc.) (70 = 70% of normal health)
-//#define XPT_ACE3_AIDAMAGETHRESHOLD 100			// Percentage value (without the % sign). Accepts values from 50 to 200 in increments of 10 (50, 60, 70, etc.) (70 = 70% of normal health)
-//#define XPT_ACE3_CARDARREST_TIMER 180				// Cardiac arrest timer duration in seconds. Accepts the following values: (60,90,120,180,240,300)
-
-//#define XPT_ACE3_FATALDAMAGESOURCE 0				// Default Fatal Damage Source setting. 0 = Vitals only (New system), 1 = Sum of trauma (Old system), 2 = Either
-//#define XPT_ACE3_PLAYERFATAL_COOP 1				// Default Fatal Injuries setting for co-op missions. 0 = Always, 1 = Only in Cardiac Arrest, 2 = Never
-//#define XPT_ACE3_PLAYERFATAL_PVP 0				// Default Fatal Injuries for PVP missions. 0 = Always, 1 = Only in Cardiac Arrest, 2 = Never
-
-//-------------------- ACEX Defines
-
-//#define XPT_ACEX_VIEWRESTRICTION_COOP 0			// Default view setting for co-op. 0 = Disabled. 1 = First-person only. 2 = Third-person only. 3 = Selective
-//#define XPT_ACEX_VIEWRESTRICTION_PVP 1			// Default view setting for PVP. 0 = Disabled. 1 = First-person only. 2 = Third-person only. 3 = Selective
-
-//#define XPT_ACEX_VIEWRESTRICTION_FOOT 0			// Default view setting when 'selective' is chosen. 0 = Disabled. 1 = First-person only. 2 = Third-person only.
-//#define XPT_ACEX_VIEWRESTRICTION_LAND 0			// Default view setting when 'selective' is chosen. 0 = Disabled. 1 = First-person only. 2 = Third-person only.
-//#define XPT_ACEX_VIEWRESTRICTION_AIR 0			// Default view setting when 'selective' is chosen. 0 = Disabled. 1 = First-person only. 2 = Third-person only.
-//#define XPT_ACEX_VIEWRESTRICTION_SEA 0			// Default view setting when 'selective' is chosen. 0 = Disabled. 1 = First-person only. 2 = Third-person only.
-
-//-------------------- Admin
-
-// Debug console - A list of playerUIDs that have access to the debug console when the mission is running.
-// Arma 3 playerUIDs correspond with the Steam64ID of the user.
-enableDebugConsole[] = {
-	"76561198031434864"
-};														// Array of player UIDs that have debug console access.
-allowFunctionsLog = 0;									// Disables functions from spamming the server RPT logs
-allowFunctionsRecompile = 0;							// Always leave this as 0
-
-//-------------------- Misc
-
-disabledAI = 1;					// Disable AI in player slots
-aiKills = 0;					// Don't show AI units on the leaderboards
-enableItemsDropping = 0;		// Don't drop player items when they swim
-joinUnassigned = 1;				// Don't autoslot players when they join the lobby
-skipLobby = 0;					// Change this to 1 if all players slots are the same and you want to skip the lobby screen. Needs joinUnassigned = 0;
-showUAVFeed = 1;				// Leave this as 1
-forceRotorLibSimulation = 0;	// Leave AFM choice to the player
-saving = 0;						// Disable saving for multiplayer missions
-
-//-------------------- Respawn
-// https://community.bistudio.com/wiki/Arma_3_Respawn
-
-respawn = 3;					// 3 is BASE respawn
-respawnDelay = 120;				// Respawn delay in seconds
-respawnVehicleDelay = 1800;		// Vehicle respawn delay in seconds
-respawnDialog = 0;				// Disables showing scoreboard when respawning
-respawnOnStart = 0;				// Respawns players at the start of the mission. Leave this off for most cases.
-respawnButton = 1;				// Enable the respawn button for players
-
-//-------------------- Respawn Templates
-
-respawnTemplates[] = {"Spectator","Counter"};								// Templates used for player respawning, applies to all sides
-//respawnTemplatesWest[] = {"MenuPosition", "Spectator"};		// Templates used for player respawning, applies to BLUFOR only
-//respawnTemplatesEast[] = {"MenuPosition", "Spectator"};		// Templates used for player respawning, applies to OPFOR only
-//respawnTemplatesGuer[] = {"MenuPosition", "Spectator"};		// Templates used for player respawning, applies to Independent only
-//respawnTemplatesCiv[] = {"MenuPosition", "Spectator"};		// Templates used for player respawning, applies to Civilians only
-//respawnTemplatesVirtual[] = {"MenuPosition", "Spectator"};	// Templates used for player respawning, applies to Virtual Units (Zeus, HC) only
-
-//-------------------- Garbage Collector
-
-
-corpseManagerMode = 3;				// Only manages corpses for non-respawning units
-corpseLimit = 50;					// Start cleaning up corpses once we get above this number
-corpseRemovalMinTime = 60;			// Make sure corpses stay on the ground for at least 60 seconds
-corpseRemovalMaxTime = 600;			// Remove corpses after 10 minutes regardless of how many are on the map  
-
-wreckManagerMode = 3;				// Only manages corpses for non-respawning units
-wreckLimit = 10;					// Start cleaning up wrecks once we get above this number
-wreckRemovalMinTime = 60;			// Make sure wrecks stay for at least 60 seconds
-wreckRemovalMaxTime = 1800;			// Remove wrecks after 30 minutes regardless of how many are on the map
-
-minPlayerDistance = 50;				// Don't remove a wreck or corpse if there's a player within 50 meters.
-
-//-------------------- CBA Defines
-
-cba_settings_hasSettingsFile = 1;	// DO NOT CHANGE FROM 1
-
 //-------------------- Template Defines
 
-#include "template\config\XPT_Defines.hpp"
+#define XPT_MAPMARKERS 1
 
 //-------------------- Parameters
 
-class params
-{
-	#include "template\config\CfgParams.hpp"
-	#include "config\CfgParams.hpp"
-};
 
 //-------------------- Functions
 
 class CfgFunctions
 {
-	#include "template\config\CfgFunctions.hpp"
-	#include "config\CfgFunctions.hpp"
-};
-
-//-------------------- Notifications
-
-class CfgNotifications
-{
-	#include "template\config\CfgNotifications.hpp"
-	#include "config\CfgNotifications.hpp"
-};
-
-//-------------------- Communication Menu
-
-class CfgCommunicationMenu
-{
-	#include "template\config\CfgCommunicationMenu.hpp"
-	#include "config\CfgCommunicationMenu.hpp"
-};
-
-//-------------------- Debriefing
-
-class CfgDebriefing
-{
-	#include "config\CfgDebriefing.hpp"
-};
-
-//-------------------- Respawn Inventories
-
-class CfgRespawnInventory
-{
-	#include "config\CfgRespawnInventory.hpp"
-};
-
-//-------------------- Respawn Templates
-class CfgRespawnTemplates
-{
-	#include "template\config\CfgRespawnTemplates.hpp"
-	#include "config\CfgRespawnTemplates.hpp"
-};
-
-//-------------------- Unit Insignias
-
-class CfgUnitInsignia
-{
-	#include "template\config\CfgUnitInsignia.hpp"
-	#include "config\CfgUnitInsignia.hpp"
-};
-
-//-------------------- ORBAT
-
-class CfgORBAT
-{
-	#include "config\CfgORBAT.hpp"
-};
-
-//-------------------- Task Enhancements
-
-class CfgTaskEnhancements
-{
-	#include "config\CfgTaskEnhancements.hpp"
-};
-
-//-------------------- Task Descriptions
-
-class CfgTaskDescriptions
-{
-	#include "config\CfgTaskDescriptions.hpp"
-};
-
-//-------------------- Mirage Coordinator
-
-#include "config\CfgAdmins.hpp"
-
-//-------------------- Custom config entries
-
-class CfgXPT
-{
-	class stages
+	class XPT
 	{
-		#include "template\config\XPT_stage_base.hpp" 	// This include must be first in the stage section
-		#include "config\stages\stage1.hpp"
+		class system
+		{	
+			file = "template\functions\system";
+			class fpsMarkers {postInit = 1;}; 		// Function to place FPS indicators on the map
+			class mapMarkersClient {}; 				// Client-side portion of the map-markers module
+			class mapMarkersServer {}; 				// Server-side portion of the map-markers module
+		};
 	};
-	
-	#include "config\XPTBriefings.hpp"
-	#include "config\XPTItemCargos.hpp"
-	#include "config\XPTLoadouts.hpp"
-	#include "config\XPTTaskUpdates.hpp"
-	#include "config\XPTVehicleSetup.hpp"
 };
+
+
+
+

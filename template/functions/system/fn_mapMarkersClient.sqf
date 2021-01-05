@@ -11,7 +11,6 @@
 	Returns: Nothing
 */
 
-#include "script_macros.hpp"
 
 // Don't run on servers or headless clients
 if (!hasInterface) exitWith {};
